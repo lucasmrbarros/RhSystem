@@ -22,9 +22,11 @@ namespace Layer.Architecture.Application.Controllers
         }
 
         [HttpPost]
-        public IActionResult AdicionarEntrevistado([FromBody] CreateEntrevistadoDto entrevistadoDto)
+        public IActionResult AdicionarEntrevistado([FromForm] CreateEntrevistadoDto entrevistadoDto)
         {
             Entrevistado entrevistado = _mapper.Map<Entrevistado>(entrevistadoDto);
+            _context.Add(entrevistado);
+            _context.SaveChanges();
 
             return CreatedAtAction(nameof(RecuperaEntrevistadoPorId), new { Id = entrevistado.Id }, entrevistado);
         }

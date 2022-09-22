@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Vaga";
+}
+<div class="container-fluid">
+    <div class="text-center">
+        <h1 class="display-4">Cadastro de Candidato</h1>
+    </div>
+</div>
+
+<div class="container p-5 my-5">
+    <div class="span4"></div>
+    <div class="span4">
+        <form class="needs-validation" novalidate method="POST" asp-area="" asp-controller="Entrevistado" asp-action="AdicionarEntrevistado">
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" class="form-control" id="nome" placeholder="Digite o nome o nome" name="nome" required>
+                <div class="valid-feedback">Ok</div>
+                <div class="invalid-feedback">Preencha o campo</div>
+            </div>
+            <div class="form-group">
+                <label for="Email">E-mail:</label>
+                <input type="text" class="form-control" id="salario" placeholder="Digite o e-mail" name="Email" required>
+                <div class="valid-feedback">Ok</div>
+                <div class="invalid-feedback">Preencha o campo</div>
+            </div>
+            <div class="form-group">
+                <label for="Telefone">Telefone:</label>
+                <input type="text" class="form-control" id="Telefone" placeholder="Digite o Telefone" name="Telefone" required>
+                <div class="valid-feedback">Ok</div>
+                <div class="invalid-feedback">Preencha o campo</div>
+            </div>
+            <form>
+                <div class="dropdown">
+                    <select type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="Vaga-dropdown" name="vagaId">
+                    </select>
+                </div>                          
+             </form>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+        <div class="col">
+            
+    </div>
+    <div class="span4"></div>
+</div>
+
+<div class="container p-5 my-5 ">
+    <div class="row">
+        <div class="col">
+            <a class="btn btn-success" asp-area="" asp-controller="Home" asp-action="Entrevista">Continuar</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+

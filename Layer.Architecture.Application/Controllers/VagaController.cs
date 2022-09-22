@@ -22,9 +22,11 @@ namespace Layer.Architecture.Application.Controllers
         }
 
         [HttpPost]
-        public IActionResult AdicionaVaga([FromBody] CreateVagaDto vagaDto)
+        public IActionResult AdicionaVaga([FromForm] CreateVagaDto vagaDto)
         {
             Vaga vaga = _mapper.Map<Vaga>(vagaDto);
+            _context.vagas.Add(vaga);
+            _context.SaveChanges();
             return CreatedAtAction(nameof(RecuperaVagaPorId), new { vaga.Id }, vaga);
         }
 
@@ -38,7 +40,7 @@ namespace Layer.Architecture.Application.Controllers
                 return NotFound();
             }
             ReadVagaDto vagaDto = _mapper.Map<ReadVagaDto>(vaga);
-            return Ok(vaga);
+            return Ok(vagaDto);
         }
 
         [HttpGet]

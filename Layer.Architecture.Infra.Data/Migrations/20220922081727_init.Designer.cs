@@ -2,14 +2,16 @@
 using Layer.Architecture.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Layer.Architecture.Infra.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220922081727_init")]
+    partial class init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -34,12 +36,7 @@ namespace Layer.Architecture.Infra.Data.Migrations
                     b.Property<string>("Telefone")
                         .HasColumnType("text");
 
-                    b.Property<int>("VagaId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("VagaId");
 
                     b.ToTable("Entrevistados");
                 });
@@ -73,22 +70,6 @@ namespace Layer.Architecture.Infra.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("vagas");
-                });
-
-            modelBuilder.Entity("Layer.Architecture.Domain.Models.Entrevistado", b =>
-                {
-                    b.HasOne("Layer.Architecture.Domain.Models.Vaga", "Vaga")
-                        .WithMany("Entrevistados")
-                        .HasForeignKey("VagaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Vaga");
-                });
-
-            modelBuilder.Entity("Layer.Architecture.Domain.Models.Vaga", b =>
-                {
-                    b.Navigation("Entrevistados");
                 });
 #pragma warning restore 612, 618
         }

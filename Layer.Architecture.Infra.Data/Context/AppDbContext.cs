@@ -12,32 +12,12 @@ namespace Layer.Architecture.Infra.Data.Context
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            //Relacao entre Empresa e vagas (1:n)
-            builder.Entity<Vaga>()
-                .HasOne(vaga => vaga.Empresa)
-                .WithMany(empresa => empresa.Vagas)
-                .HasForeignKey(vaga => vaga.EmpresaId);
-
-            //Relacao entre Entrevistado e Tecnologias(1:n)
-            builder.Entity<Tecnologias>()
-                .HasOne(tencologias => tencologias.Entrevistado)
-                .WithMany(entrevistados => entrevistados.Tecnologias)
-                .HasForeignKey(tecnologias => tecnologias.EntrevistadoId);
-
-            //Relacao entre vaga e tecnologia(1:n)
-            builder.Entity<Tecnologias>()
-                .HasOne(tecnologias => tecnologias.Vaga)
-                .WithMany(vaga => vaga.Tecnologias)
-                .HasForeignKey(tecnologias => tecnologias.VagaId);
-
-            //Relacao Cadidato Vaga (1:n)
-            builder.Entity<Vaga>()
-                .HasOne(vaga => vaga.Entrevistado)
-                .WithMany(entrevistados => entrevistados.Vagas)
-                .HasForeignKey(vaga => vaga.EntrevistadoId); ;
+         builder.Entity<Entrevistado>()
+            .HasOne(entrevistado => entrevistado.Vaga)
+            .WithMany(vaga => vaga.Entrevistados)
+            .HasForeignKey(entrevistado => entrevistado.VagaId);
         }
 
-        public DbSet<Empresa> Empresas { get; set; }
         public DbSet<Entrevistado> Entrevistados { get; set; }
         public DbSet<Vaga> vagas { get; set; }
         public DbSet<Tecnologias> Tecnologias { get; set; }

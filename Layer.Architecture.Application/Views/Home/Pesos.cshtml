@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Pesos";
+}
+
+<div class="container-fluid">
+    <div class="text-center">
+        <h1 class="display-4">Balanceamento</h1>
+    </div>
+</div>
+
+<div class="container p-5 my-5">
+    <div class="DropDowns">
+        <div class="row">
+            <div class="col">
+                <div class="dropdown">
+                    <select type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="Vaga-dropdown">
+                    </select>
+                </div>
+            </div>
+            <div class="col">
+                <div class="dropdown">
+                    <select type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="dropdown_tecnologia">
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container p-5 my-5">
+    <div class ="span4"></div>
+    <div class="span4">
+        <form>
+            <div class="form-row">
+                <div class="col">
+                    <input type="text" class="form-control" id="Peso" placeholder="Digite o peso" name="Peso">
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="span4"></div>
+</div>
+
+<div class="container p-5 my-5 ">
+    <div class="row">
+        <div class="col">
+            <button type="button" class="btn btn-warning">Adicionar peso</button>
+        </div>
+        <div class="col">
+            <a class="btn btn-success" asp-area="" asp-controller="Home" asp-action="Ranking">Obter Ranking</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+

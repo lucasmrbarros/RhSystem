@@ -1,12 +1,14 @@
-﻿namespace Layer.Architecture.Domain.Dtos.Entrevistado
+﻿using Layer.Architecture.Domain.Models;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+
+namespace Layer.Architecture.Domain.Dtos.Entrevistado
 {
-    public class ReadEntrevistadoDto
+    public class ReadEntrevistadoDto : BaseReadDto
     {
-        public int Id { get; set; }
-        public string Nome { get; set; }
         public string Email { get; set; }
         public string Telefone { get; set; }
         public int Pontos { get; set; }
 
+        public Models.Vaga Vaga { get; set; }
     }
 }
