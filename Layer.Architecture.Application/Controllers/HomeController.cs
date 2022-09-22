@@ -27,6 +27,28 @@ namespace Layer.Architecture.Application.Controllers
         {
             return View();
         }
+        public IActionResult Entrevista()
+        {
+            return View();
+        }
+
+        public IActionResult Pesos()
+        {
+            return View();
+        }
+
+        public IActionResult Ranking()
+        {
+            return View();
+        }
+        public IActionResult Vagas()
+        {
+            return View();
+        }
+        public IActionResult Candidatos()
+        {
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

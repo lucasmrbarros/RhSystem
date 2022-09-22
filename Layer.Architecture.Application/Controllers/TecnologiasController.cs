@@ -23,9 +23,12 @@ namespace Layer.Architecture.Application.Controllers
         }
 
         [HttpPost]
-        public IActionResult AdicionarTecnologia([FromBody] CreateTecnologiaDto tecnologiaDto)
+        public IActionResult AdicionarTecnologia([FromForm] CreateTecnologiaDto tecnologiaDto)
         {
             Tecnologias tecnologias = _mapper.Map<Tecnologias>(tecnologiaDto);
+            _context.Add(tecnologias);
+            _context.SaveChanges();
+            /*method="POST" asp-area="" asp-controller="Tecnologias" asp-action="AdicionarTecnologia"*/
             return CreatedAtAction(nameof(RetornaTecnologiasPorId), new { tecnologias.Id }, tecnologias);
         }
 

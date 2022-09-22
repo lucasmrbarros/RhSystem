@@ -1,3 +1,4 @@
+using AutoMapper;
 using Layer.Architecture.Infra.Data.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

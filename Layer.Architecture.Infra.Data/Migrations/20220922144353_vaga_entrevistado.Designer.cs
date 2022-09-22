@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Layer.Architecture.Infra.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220920143501_BigOne")]
-    partial class BigOne
+    [Migration("20220922144353_vaga_entrevistado")]
+    partial class vaga_entrevistado
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -17,20 +17,6 @@ namespace Layer.Architecture.Infra.Data.Migrations
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 64)
                 .HasAnnotation("ProductVersion", "5.0.5");
-
-            modelBuilder.Entity("Layer.Architecture.Domain.Models.Empresa", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("RazaoSocial")
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Empresas");
-                });
 
             modelBuilder.Entity("Layer.Architecture.Domain.Models.Entrevistado", b =>
                 {
@@ -50,7 +36,12 @@ namespace Layer.Architecture.Infra.Data.Migrations
                     b.Property<string>("Telefone")
                         .HasColumnType("text");
 
+                    b.Property<int>("VagaId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("VagaId");
 
                     b.ToTable("Entrevistados");
                 });
@@ -61,20 +52,10 @@ namespace Layer.Architecture.Infra.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("EntrevistadoId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Nome")
                         .HasColumnType("text");
 
-                    b.Property<int>("VagaId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("EntrevistadoId");
-
-                    b.HasIndex("VagaId");
 
                     b.ToTable("Tecnologias");
                 });
@@ -85,12 +66,6 @@ namespace Layer.Architecture.Infra.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("EmpresaId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("EntrevistadoId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Nome")
                         .HasColumnType("text");
 
@@ -99,66 +74,23 @@ namespace Layer.Architecture.Infra.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EmpresaId");
-
-                    b.HasIndex("EntrevistadoId");
-
                     b.ToTable("vagas");
                 });
 
-            modelBuilder.Entity("Layer.Architecture.Domain.Models.Tecnologias", b =>
+            modelBuilder.Entity("Layer.Architecture.Domain.Models.Entrevistado", b =>
                 {
-                    b.HasOne("Layer.Architecture.Domain.Models.Entrevistado", "Entrevistado")
-                        .WithMany("Tecnologias")
-                        .HasForeignKey("EntrevistadoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Layer.Architecture.Domain.Models.Vaga", "Vaga")
-                        .WithMany("Tecnologias")
+                        .WithMany("Entrevistados")
                         .HasForeignKey("VagaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Entrevistado");
 
                     b.Navigation("Vaga");
                 });
 
             modelBuilder.Entity("Layer.Architecture.Domain.Models.Vaga", b =>
                 {
-                    b.HasOne("Layer.Architecture.Domain.Models.Empresa", "Empresa")
-                        .WithMany("Vagas")
-                        .HasForeignKey("EmpresaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Layer.Architecture.Domain.Models.Entrevistado", "Entrevistado")
-                        .WithMany("Vagas")
-                        .HasForeignKey("EntrevistadoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Empresa");
-
-                    b.Navigation("Entrevistado");
-                });
-
-            modelBuilder.Entity("Layer.Architecture.Domain.Models.Empresa", b =>
-                {
-                    b.Navigation("Vagas");
-                });
-
-            modelBuilder.Entity("Layer.Architecture.Domain.Models.Entrevistado", b =>
-                {
-                    b.Navigation("Tecnologias");
-
-                    b.Navigation("Vagas");
-                });
-
-            modelBuilder.Entity("Layer.Architecture.Domain.Models.Vaga", b =>
-                {
-                    b.Navigation("Tecnologias");
+                    b.Navigation("Entrevistados");
                 });
 #pragma warning restore 612, 618
         }

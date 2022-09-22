@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "Vaga";
+}
+<div class="container-fluid">
+    <div class="text-center">
+        <h1 class="display-4">Cadastro de Vagas</h1>
+    </div>
+</div>
+
+<div class="container p-5 my-5">
+    <div class="span4"></div>
+    <div class="span4">
+        <form class="needs-validation" novalidate method="POST" asp-area="" asp-controller="Vaga" asp-action="AdicionaVaga">
+            <div class="form-group">
+                <label for="nome">Vaga:</label>
+                <input type="text" class="form-control" id="nome" placeholder="Digite o nome da vaga" name="nome" required>
+                <div class="valid-feedback">Ok</div>
+                <div class="invalid-feedback">Preencha o campo</div>
+            </div>
+            <div class="form-group">
+                <label for="salario">Salario:</label>
+                <input type="text" class="form-control" id="salario" placeholder="Digite o salario proposto" name="salario" required>
+                <div class="valid-feedback">Ok</div>
+                <div class="invalid-feedback">Preencha o campo</div>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+    <div class="span4"></div>
+</div>
+
+<div class="container p-5 my-5 ">
+    <h6>Selecione as tecologias exigidas</h6>
+    <div class="form-check" id="checkbox_tecnologias">
+    </div>
+</div>
+
+<div class="container p-5 my-5 ">
+    <div class="row">
+        <div class="col">
+            <a class="btn btn-success" asp-area="" asp-controller="Home" asp-action="Candidatos">Continuar</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+

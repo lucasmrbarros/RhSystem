@@ -1,8 +1,8 @@
 ﻿namespace Layer.Architecture.Domain.Dtos.Vaga
 {
-    public class CreateVagaDto
+    public class CreateVagaDto : BaseCreateDto
     {
-        public string Nome { get; set; }
         public int Salario { get; set; }
     }
 }
+

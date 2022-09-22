@@ -1,8 +1,37 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container-fluid">
+    <div class="text-center">
+        <h1 class="display-4">Bem-Vindo ao System Of A Rh</h1>
+    </div>
 </div>
+
+<div class="container p-5 my-5">
+    <div class="span4"></div>
+    <div class="span4">
+        <form class="needs-validation" novalidate method="POST" asp-area="" asp-controller="Tecnologias" asp-action="AdicionarTecnologia">
+            <div class="form-group">
+                <label for="nome">Tecnologia:</label>
+                <input type="text" class="form-control" id="nome" placeholder="Digite o nome da Tecnologia" name="nome" required>
+                <div class="valid-feedback">Ok</div>
+                <div class="invalid-feedback">Preencha o campo</div>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+    <div class="span4"></div>
+</div>
+
+<div class="container p-5 my-5 ">
+    <div class="row">
+        <div class="col">
+            <a class="btn btn-success" asp-area="" asp-controller="Home" asp-action="Vagas">Continuar</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+

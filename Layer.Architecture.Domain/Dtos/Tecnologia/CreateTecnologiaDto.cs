@@ -1,7 +1,7 @@
 ﻿namespace Layer.Architecture.Domain.Dtos.Tecnologia
 {
-    public class CreateTecnologiaDto
+    public class CreateTecnologiaDto : BaseCreateDto
     {
-        public int Nome { get; set; }
+        
     }
 }
