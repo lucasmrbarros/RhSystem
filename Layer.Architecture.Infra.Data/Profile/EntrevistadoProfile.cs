@@ -8,8 +8,10 @@ namespace Layer.Infra.Data.Mapping.Profiles
     {
         public EntrevistadoProfile()
         {
-            CreateMap<CreateEntrevistadoDto, Entrevistado>();
+            CreateMap<CreateEntrevistadoDto, Entrevistado>()
+             .ForMember(dest => dest.VagaId, act => act.MapFrom(src => src.VagaId));
             CreateMap<Entrevistado, ReadEntrevistadoDto>();
+
         }
     }
 }
