@@ -12,5 +12,9 @@ namespace Layer.Architecture.Domain.Models
         [JsonIgnore]
 
         public virtual List<Entrevistado>Entrevistados { get; set; }
+
+        [JsonIgnore]
+
+        public virtual List<VagaNNTecnologias> Tecnologias{ get; set;}
     }
 }

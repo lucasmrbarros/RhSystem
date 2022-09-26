@@ -3,6 +3,7 @@
     public class CreateVagaDto : BaseCreateDto
     {
         public int Salario { get; set; }
+        public int TecId { get; set; }
     }
 }
 

@@ -16,5 +16,8 @@ namespace Layer.Architecture.Domain.Models
 
         public virtual Vaga Vaga{ get; set; }
         public int VagaId { get; set; }
+
+        [JsonIgnore]
+        public virtual List<EntrevistadoNNTecnologias> Tecnologias { get; set; }
     }
 }
