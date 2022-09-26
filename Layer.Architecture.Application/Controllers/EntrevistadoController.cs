@@ -10,7 +10,7 @@ namespace Layer.Architecture.Application.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class EntrevistadoController : Controller
+    public class EntrevistadoController : ControllerBase
     {
         private AppDbContext _context;
         private IMapper _mapper;
@@ -25,15 +25,14 @@ namespace Layer.Architecture.Application.Controllers
         public IActionResult AdicionarEntrevistado([FromForm] CreateEntrevistadoDto entrevistadoDto)
         {
             Entrevistado entrevistado = _mapper.Map<Entrevistado>(entrevistadoDto);
-            _context.Add(entrevistado);
+            _context.Entrevistados.Add(entrevistado);
             _context.SaveChanges();
-
             return CreatedAtAction(nameof(RecuperaEntrevistadoPorId), new { Id = entrevistado.Id }, entrevistado);
         }
 
         [HttpGet("{id}")]
         public IActionResult RecuperaEntrevistadoPorId(int id)
-        {
+        { 
             Entrevistado entrevistado = _context.Entrevistados.FirstOrDefault(_context => _context.Id == id);
 
             if (entrevistado == null)
@@ -43,6 +42,7 @@ namespace Layer.Architecture.Application.Controllers
             ReadEntrevistadoDto entrevistadoDto = _mapper.Map<ReadEntrevistadoDto>(entrevistado);
             return Ok(entrevistadoDto);
         }
+
 
         [HttpGet]
         public IEnumerable RetornarEntrevistados([FromQuery] string nome)
