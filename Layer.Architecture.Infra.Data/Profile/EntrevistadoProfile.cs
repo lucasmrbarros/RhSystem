@@ -12,8 +12,6 @@ namespace Layer.Infra.Data.Mapping.Profiles
         {
             CreateMap<CreateEntrevistadoDto, Entrevistado>();
             CreateMap<Entrevistado, ReadEntrevistadoDto>();
-            CreateMap<CreateEntrevistadoNNTecnologiaDto, EntrevistadoNNTecnologias>();
-            CreateMap<EntrevistadoNNTecnologias, ReadEntrevistadoNNTecnologiaDto>();
         }
     }
 }

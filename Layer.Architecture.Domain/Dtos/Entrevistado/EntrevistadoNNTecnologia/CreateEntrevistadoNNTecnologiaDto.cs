@@ -8,6 +8,6 @@ namespace Layer.Architecture.Domain.Dtos.EntrevistadoNNVaga
 {
     public class CreateEntrevistadoNNTecnologiaDto : BaseCreatTecnologiaNNDto
     {
-        public int Identrevistado { get; set; }
+        public int IdEntrevistado { get; set; }
     }
 }

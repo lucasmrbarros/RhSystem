@@ -8,6 +8,7 @@ namespace Layer.Architecture.Domain.Dtos
 {
     public class BaseCreatTecnologiaNNDto
     {
-        public int IdTecnologia { get; set; }
+
+        public int TecId{ get; set; }
     }
 }

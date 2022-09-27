@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Layer.Architecture.Infra.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220926135507_RelEntrevistadosVagasNNTecnologias")]
-    partial class RelEntrevistadosVagasNNTecnologias
+    [Migration("20220926181556_RelEntrevistadosVagasNNTecnologias2")]
+    partial class RelEntrevistadosVagasNNTecnologias2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -64,7 +64,7 @@ namespace Layer.Architecture.Infra.Data.Migrations
 
                     b.HasIndex("TecId");
 
-                    b.ToTable("EntrevistadoNNTecnologias");
+                    b.ToTable("entrevistadoNNTecnologias");
                 });
 
             modelBuilder.Entity("Layer.Architecture.Domain.Models.Tecnologias", b =>
@@ -116,7 +116,7 @@ namespace Layer.Architecture.Infra.Data.Migrations
 
                     b.HasIndex("VagaId");
 
-                    b.ToTable("VagaNNTecnologias");
+                    b.ToTable("vagaNNTecnologias");
                 });
 
             modelBuilder.Entity("Layer.Architecture.Domain.Models.Entrevistado", b =>
@@ -139,7 +139,7 @@ namespace Layer.Architecture.Infra.Data.Migrations
                         .IsRequired();
 
                     b.HasOne("Layer.Architecture.Domain.Models.Tecnologias", "Tecnologias")
-                        .WithMany("Entrevistados")
+                        .WithMany("entrevistados")
                         .HasForeignKey("TecId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -152,7 +152,7 @@ namespace Layer.Architecture.Infra.Data.Migrations
             modelBuilder.Entity("Layer.Architecture.Domain.Models.VagaNNTecnologias", b =>
                 {
                     b.HasOne("Layer.Architecture.Domain.Models.Tecnologias", "Tecnologias")
-                        .WithMany("Vagas")
+                        .WithMany("vagas")
                         .HasForeignKey("TecId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -175,9 +175,9 @@ namespace Layer.Architecture.Infra.Data.Migrations
 
             modelBuilder.Entity("Layer.Architecture.Domain.Models.Tecnologias", b =>
                 {
-                    b.Navigation("Entrevistados");
+                    b.Navigation("entrevistados");
 
-                    b.Navigation("Vagas");
+                    b.Navigation("vagas");
                 });
 
             modelBuilder.Entity("Layer.Architecture.Domain.Models.Vaga", b =>

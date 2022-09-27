@@ -3,12 +3,12 @@ using MySql.EntityFrameworkCore.Metadata;
 
 namespace Layer.Architecture.Infra.Data.Migrations
 {
-    public partial class RelEntrevistadosVagasNNTecnologias : Migration
+    public partial class RelEntrevistadosVagasNNTecnologias2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "EntrevistadoNNTecnologias",
+                name: "entrevistadoNNTecnologias",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -18,15 +18,15 @@ namespace Layer.Architecture.Infra.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_EntrevistadoNNTecnologias", x => x.Id);
+                    table.PrimaryKey("PK_entrevistadoNNTecnologias", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_EntrevistadoNNTecnologias_Entrevistados_EntrevistadoId",
+                        name: "FK_entrevistadoNNTecnologias_Entrevistados_EntrevistadoId",
                         column: x => x.EntrevistadoId,
                         principalTable: "Entrevistados",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_EntrevistadoNNTecnologias_Tecnologias_TecId",
+                        name: "FK_entrevistadoNNTecnologias_Tecnologias_TecId",
                         column: x => x.TecId,
                         principalTable: "Tecnologias",
                         principalColumn: "Id",
@@ -34,7 +34,7 @@ namespace Layer.Architecture.Infra.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "VagaNNTecnologias",
+                name: "vagaNNTecnologias",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -44,15 +44,15 @@ namespace Layer.Architecture.Infra.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_VagaNNTecnologias", x => x.Id);
+                    table.PrimaryKey("PK_vagaNNTecnologias", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_VagaNNTecnologias_Tecnologias_TecId",
+                        name: "FK_vagaNNTecnologias_Tecnologias_TecId",
                         column: x => x.TecId,
                         principalTable: "Tecnologias",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_VagaNNTecnologias_vagas_VagaId",
+                        name: "FK_vagaNNTecnologias_vagas_VagaId",
                         column: x => x.VagaId,
                         principalTable: "vagas",
                         principalColumn: "Id",
@@ -60,33 +60,33 @@ namespace Layer.Architecture.Infra.Data.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_EntrevistadoNNTecnologias_EntrevistadoId",
-                table: "EntrevistadoNNTecnologias",
+                name: "IX_entrevistadoNNTecnologias_EntrevistadoId",
+                table: "entrevistadoNNTecnologias",
                 column: "EntrevistadoId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_EntrevistadoNNTecnologias_TecId",
-                table: "EntrevistadoNNTecnologias",
+                name: "IX_entrevistadoNNTecnologias_TecId",
+                table: "entrevistadoNNTecnologias",
                 column: "TecId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_VagaNNTecnologias_TecId",
-                table: "VagaNNTecnologias",
+                name: "IX_vagaNNTecnologias_TecId",
+                table: "vagaNNTecnologias",
                 column: "TecId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_VagaNNTecnologias_VagaId",
-                table: "VagaNNTecnologias",
+                name: "IX_vagaNNTecnologias_VagaId",
+                table: "vagaNNTecnologias",
                 column: "VagaId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "EntrevistadoNNTecnologias");
+                name: "entrevistadoNNTecnologias");
 
             migrationBuilder.DropTable(
-                name: "VagaNNTecnologias");
+                name: "vagaNNTecnologias");
         }
     }
 }

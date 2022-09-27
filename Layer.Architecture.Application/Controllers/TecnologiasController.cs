@@ -28,7 +28,6 @@ namespace Layer.Architecture.Application.Controllers
             Tecnologias tecnologias = _mapper.Map<Tecnologias>(tecnologiaDto);
             _context.Add(tecnologias);
             _context.SaveChanges();
-            /*method="POST" asp-area="" asp-controller="Tecnologias" asp-action="AdicionarTecnologia"*/
             return CreatedAtAction(nameof(RetornaTecnologiasPorId), new { tecnologias.Id }, tecnologias);
         }
 

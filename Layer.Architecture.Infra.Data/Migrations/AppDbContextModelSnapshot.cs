@@ -44,6 +44,27 @@ namespace Layer.Architecture.Infra.Data.Migrations
                     b.ToTable("Entrevistados");
                 });
 
+            modelBuilder.Entity("Layer.Architecture.Domain.Models.EntrevistadoNNTecnologias", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("EntrevistadoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TecId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EntrevistadoId");
+
+                    b.HasIndex("TecId");
+
+                    b.ToTable("entrevistadoNNTecnologias");
+                });
+
             modelBuilder.Entity("Layer.Architecture.Domain.Models.Tecnologias", b =>
                 {
                     b.Property<int>("Id")
@@ -75,6 +96,27 @@ namespace Layer.Architecture.Infra.Data.Migrations
                     b.ToTable("vagas");
                 });
 
+            modelBuilder.Entity("Layer.Architecture.Domain.Models.VagaNNTecnologias", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("TecId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("VagaId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TecId");
+
+                    b.HasIndex("VagaId");
+
+                    b.ToTable("vagaNNTecnologias");
+                });
+
             modelBuilder.Entity("Layer.Architecture.Domain.Models.Entrevistado", b =>
                 {
                     b.HasOne("Layer.Architecture.Domain.Models.Vaga", "Vaga")
@@ -86,9 +128,61 @@ namespace Layer.Architecture.Infra.Data.Migrations
                     b.Navigation("Vaga");
                 });
 
+            modelBuilder.Entity("Layer.Architecture.Domain.Models.EntrevistadoNNTecnologias", b =>
+                {
+                    b.HasOne("Layer.Architecture.Domain.Models.Entrevistado", "Entrevistado")
+                        .WithMany("Tecnologias")
+                        .HasForeignKey("EntrevistadoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Layer.Architecture.Domain.Models.Tecnologias", "Tecnologias")
+                        .WithMany("entrevistados")
+                        .HasForeignKey("TecId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Entrevistado");
+
+                    b.Navigation("Tecnologias");
+                });
+
+            modelBuilder.Entity("Layer.Architecture.Domain.Models.VagaNNTecnologias", b =>
+                {
+                    b.HasOne("Layer.Architecture.Domain.Models.Tecnologias", "Tecnologias")
+                        .WithMany("vagas")
+                        .HasForeignKey("TecId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Layer.Architecture.Domain.Models.Vaga", "Vaga")
+                        .WithMany("Tecnologias")
+                        .HasForeignKey("VagaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Tecnologias");
+
+                    b.Navigation("Vaga");
+                });
+
+            modelBuilder.Entity("Layer.Architecture.Domain.Models.Entrevistado", b =>
+                {
+                    b.Navigation("Tecnologias");
+                });
+
+            modelBuilder.Entity("Layer.Architecture.Domain.Models.Tecnologias", b =>
+                {
+                    b.Navigation("entrevistados");
+
+                    b.Navigation("vagas");
+                });
+
             modelBuilder.Entity("Layer.Architecture.Domain.Models.Vaga", b =>
                 {
                     b.Navigation("Entrevistados");
+
+                    b.Navigation("Tecnologias");
                 });
 #pragma warning restore 612, 618
         }

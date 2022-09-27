@@ -10,16 +10,33 @@
 <div class="container p-5 my-5">
     <div class="span4"></div>
     <div class="span4">
-        <form class="needs-validation" novalidate method="POST" asp-area="" asp-controller="Tecnologias" asp-action="AdicionarTecnologia">
+        <form action="/" class="was-validated" id="postec">
             <div class="form-group">
                 <label for="nome">Tecnologia:</label>
-                <input type="text" class="form-control" id="nome" placeholder="Digite o nome da Tecnologia" name="nome" required>
-                <div class="valid-feedback">Ok</div>
-                <div class="invalid-feedback">Preencha o campo</div>
+                <input type="text" class="form-control" id="nome" placeholder="Insira a tecnologia" name="nome" required>  
+                <div class="valid-feedback">ok.</div>
+                <div class="invalid-feedback">Por favor, informe uma tecnologia</div>
             </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
+            <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal">enviar</button>
         </form>
     </div>
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    Nova tecnologia Adiconada
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     <div class="span4"></div>
 </div>
 
