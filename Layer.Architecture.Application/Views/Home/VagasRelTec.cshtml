@@ -3,25 +3,22 @@
 }
 <div class="container-fluid">
     <div class="text-center">
-        <h1 class="display-4">Cadastro de Vagas</h1>
+        <h1 class="display-4">Cadastro de Vagas - Tecnologias</h1>
     </div>
 </div>
 
 <div class="container p-5 my-5">
     <div class="span4"></div>
     <div class="span4">
-        <form form action="/" class="was-validated" id="postVaga">
+        <form form action="/" class="was-validated" id="postRelTecVaga">
             <div class="form-group">
-                <label for="nome">Vaga:</label>
-                <input type="text" class="form-control" id="nome" placeholder="Digite o nome da vaga" name="nome" required>
-                <div class="valid-feedback">Ok</div>
-                <div class="invalid-feedback">Preencha o campo</div>
-            </div>
+                <label for="sel1">Selecione o a vaga:</label>
+                <select class="form-control" id="Vaga-dropdown" name="vagaid">
+                </select>
+                <div />
             <div class="form-group">
-                <label for="salario">Salario:</label>
-                <input type="text" class="form-control" id="salario" placeholder="Digite o salario proposto" name="salario" required>
-                <div class="valid-feedback">Ok</div>
-                <div class="invalid-feedback">Preencha o campo</div>
+                <h6>Selecione as tecologias exigidas</h6>
+                <div class="form-check" id="checkbox_tecnologias">
             </div>
             <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Enviar</button>
         </form>
@@ -49,7 +46,7 @@
 <div class="container p-5 my-5 ">
     <div class="row">
         <div class="col">
-            <a class="btn btn-success" asp-area="" asp-controller="Home" asp-action="VagasRelTec">Continuar</a>
+            <a class="btn btn-success" asp-area="" asp-controller="Home" asp-action="Candidatos">Continuar</a>
         </div>
     </div>
 </div>

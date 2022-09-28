@@ -20,7 +20,7 @@ const url_candidato = 'https://localhost:44342/Entrevistado/';
 
 $.getJSON(url_candidato, function (data) {
     $.each(data, function (_key, entry) {
-        dropdown_Candidato.append($('<option></option>').attr('value', entry.abbreviation).text(entry.nome));
+        dropdown_Candidato.append($('<option value="" name= "EntrevistadoId"></option>').attr('value', entry.id).text(entry.nome));
     })
 });
 
@@ -56,8 +56,7 @@ const url_tecnologia_drop = 'https://localhost:44342/Tecnologias/';
 
 $.getJSON(url_tecnologia_drop, function (data) {
     $.each(data, function (_key, entry) {
-        dropdown_tecnologia.append($('<input type="checkbox" value="" name="TecnogiaId">  ').attr('value', entry.id));
-        dropdown_tecnologia.append($('<label"></label>').text(entry.nome));
+        dropdown_tecnologia.append($(' <option value="" name="tecId"></option>').attr('value', entry.id).text(entry.nome));
     })
 });
 
@@ -76,7 +75,7 @@ const url_tecnologia = 'https://localhost:44342/Tecnologias/';
 
 $.getJSON(url_tecnologia, function (data) {
     $.each(data, function (_key, entry) {
-        checkbox_tecnologias.append($('<input type="checkbox" value="" name="TecnogiaId">  ').attr('value', entry.id));
+        checkbox_tecnologias.append($('<input type="checkbox" value="" name="tecId">  ').attr('value', entry.id));
         checkbox_tecnologias.append($('<label"></label>').text(entry.nome));
         checkbox_tecnologias.append($('<br>'));
     })

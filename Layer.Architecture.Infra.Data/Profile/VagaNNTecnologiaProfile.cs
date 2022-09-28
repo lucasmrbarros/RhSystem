@@ -14,6 +14,7 @@ namespace Layer.Architecture.Infra.Data.Profile
         {
             CreateMap<CreateVagaNNTecnologiaDto, VagaNNTecnologias>();
             CreateMap<VagaNNTecnologias, ReadVagaNNTecnologiaDto>();
+            CreateMap<UpdateVagaNNTecnologiaDto, VagaNNTecnologias>();
         }
     }
 }

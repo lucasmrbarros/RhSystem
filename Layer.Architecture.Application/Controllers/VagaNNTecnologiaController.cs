@@ -2,10 +2,10 @@
 using Layer.Architecture.Domain.Dtos.Vaga.VagaNNTecnologiaDto;
 using Layer.Architecture.Infra.Data.Context;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using System.Collections;
 using System.Linq;
 using Layer.Architecture.Domain.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Layer.Architecture.Application.Controllers
 {
@@ -30,13 +30,30 @@ namespace Layer.Architecture.Application.Controllers
             _context.vagaNNTecnologias.Add(VagaTec);
             _context.SaveChanges();
 
-            return CreatedAtAction(nameof(RetornoVagaTecnologia), new {VagaTec.Id}, VagaTec);
+            return CreatedAtAction(nameof(RetornoVagaTecnologia), new { VagaTec.Id}, VagaTec);
         }
 
+ 
         [HttpGet]
         public IEnumerable RetornoVagaTecnologia()
         {
             return _context.vagaNNTecnologias.ToList();
+        }
+
+        [Route("{Idvaga}/{IdTec}")]
+        [HttpPut]
+        public ActionResult AdicionaPesos(int Idvaga, int IdTec, [FromForm] UpdateVagaNNTecnologiaDto dto)
+        {
+            VagaNNTecnologias vaga = _context.vagaNNTecnologias.Where(vaga => vaga.VagaId == Idvaga && vaga.TecId == IdTec).FirstOrDefault();
+
+            if (vaga == null)
+            {
+                return NotFound();
+            }
+
+            _mapper.Map(dto, vaga);
+            _context.SaveChanges();
+            return NoContent();
         }
     }
 }

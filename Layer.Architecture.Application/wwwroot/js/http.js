@@ -33,8 +33,54 @@ $("#postVaga").submit(function (event) {
         contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
         data: valdata
     });
+});
 
-    //ideia: repetir a estrutura acima para a tabela de relacioanemento
+$("#postRelTecVaga").submit(function (event) {
+    event.preventDefault();
 
+    var valdata = $("#postRelTecVaga").serialize();
 
+    $.ajax({
+        url: "https://localhost:44342/VagaNNTecnologia",
+        type: "POST",
+        dataType: 'json',
+        contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+        data: valdata
+    });
+});
+
+$("#postEntrevista").submit(function (event) {
+    event.preventDefault();
+
+    var valdata = $("#postEntrevista").serialize();
+
+    $.ajax({
+        url: "https://localhost:44342/EntrevistadoNNTecnologia",
+        type: "POST",
+        dataType: 'json',
+        contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+        data: valdata
+    });
+});
+
+$("#PutPontVaga").submit(function (event) {
+    event.preventDefault();
+
+    var a = "https://localhost:44342/VagaNNTecnologia/",
+    var b = "1/",
+    var c = "1",
+    var url = a.concat(a).concat(b).concat(c);
+    /*
+    var $form = (this),
+        vagaid = $form.find("option[name='vagaid']").val(),*/
+
+    var valdata = $("#Pontos");
+
+    $.ajax({
+        url: url,
+        type: "PUT",
+        dataType: 'json',
+        contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+        data: valdata
+    });
 });

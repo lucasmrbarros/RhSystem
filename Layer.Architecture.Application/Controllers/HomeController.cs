@@ -34,6 +34,7 @@ namespace Layer.Architecture.Application.Controllers
 
         public IActionResult Pesos()
         {
+            
             return View();
         }
 
@@ -46,6 +47,10 @@ namespace Layer.Architecture.Application.Controllers
             return View();
         }
         public IActionResult Candidatos()
+        {
+            return View();
+        }
+        public IActionResult VagasRelTec()
         {
             return View();
         }
