@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Layer.Architecture.Domain.Dtos
 {
-    //Dto base para criacao
-    public class BaseCreateDto 
+    //Dto base para a criacao de relacionamentos com tecnologias
+    public class BaseCreatTecnologiaNNDto
     {
-        public string Nome { get; set; } 
+
+        public int TecId{ get; set; }
     }
 }

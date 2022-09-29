@@ -5,6 +5,7 @@ using System.Linq;
 
 namespace Layer.Infra.Data.Mapping.Profiles
 {
+    //Perfil de vaga
     public class VagaProfile : Profile
     {
         public VagaProfile()

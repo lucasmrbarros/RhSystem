@@ -6,6 +6,7 @@ namespace Layer.Infra.Data.Mapping.Profiles
 {
     public class EntrevistadoProfile : Profile
     {
+        //Perfil de entrevistados
         public EntrevistadoProfile()
         {
             CreateMap<CreateEntrevistadoDto, Entrevistado>()

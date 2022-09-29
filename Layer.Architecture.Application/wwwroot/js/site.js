@@ -1,10 +1,10 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿//Criacao de elementos visuais
 
-// Write your JavaScript code.
+//Tabela de relatorio
 $(document).ready(function () {
     $('#table_id').DataTable();
 });
+
 
 //Drop Down do Candidato
 
@@ -12,7 +12,6 @@ let dropdown_Candidato = $('#Candidato-dropdown');
 
 dropdown_Candidato.empty();
 
-dropdown_Candidato.append('<option selected="true">Candidato</option>');
 dropdown_Candidato.prop('selectedIndex', 0);
 
 const url_candidato = 'https://localhost:44342/Entrevistado/';
@@ -43,13 +42,13 @@ $.getJSON(url_vaga, function (data) {
     })
 });
 
+
 //Drop Down tecnologias
 
 let dropdown_tecnologia = $('#dropdown_tecnologia');
 
 dropdown_tecnologia.empty();
 
-dropdown_tecnologia.append('<option selected="true">Tecnologia</option>');
 dropdown_tecnologia.prop('selectedIndex', 0);
 
 const url_tecnologia_drop = 'https://localhost:44342/Tecnologias/';
@@ -60,6 +59,7 @@ $.getJSON(url_tecnologia_drop, function (data) {
         dropdown_tecnologia.append($('<label"></label>').text(entry.nome));
     })
 });
+<<<<<<< Updated upstream
 
 
 
@@ -81,3 +81,5 @@ $.getJSON(url_tecnologia, function (data) {
         checkbox_tecnologias.append($('<br>'));
     })
 });
+=======
+>>>>>>> Stashed changes

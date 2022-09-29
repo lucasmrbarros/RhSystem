@@ -7,6 +7,7 @@ namespace Layer.Infra.Data.Mapping.Profiles
 {
     public class TecnologiasProfile : Profile
     {
+        //Perfil de tecnologias
         public TecnologiasProfile()
         {
             CreateMap<CreateTecnologiaDto, Tecnologias>();

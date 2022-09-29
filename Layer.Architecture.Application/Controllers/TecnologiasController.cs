@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections;
 using System.Linq;
 
+//Controladora responsavel pelas as opereaçoes relacioadas as tercnologias.
+
 namespace Layer.Architecture.Application.Controllers
 {
     [ApiController]

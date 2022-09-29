@@ -1,10 +1,13 @@
 ﻿using AutoMapper;
+using Layer.Architecture.Domain.Dtos;
 using Layer.Architecture.Domain.Dtos.Vaga;
 using Layer.Architecture.Domain.Models;
 using Layer.Architecture.Infra.Data.Context;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections;
 using System.Linq;
+
+//Controladora reponsavel pelas as operacoes relacionadas ao cadastro de vagas
 
 namespace Layer.Architecture.Application.Controllers
 {
@@ -29,7 +32,7 @@ namespace Layer.Architecture.Application.Controllers
             _context.SaveChanges();
             return CreatedAtAction(nameof(RecuperaVagaPorId), new { vaga.Id }, vaga);
         }
-
+        
         [HttpGet("{id}")]
         public IActionResult RecuperaVagaPorId(int id)
         {

@@ -7,10 +7,15 @@
     </div>
 </div>
 
+<!-- Formulario par a criacao de vagas  -->
 <div class="container p-5 my-5">
+<<<<<<< Updated upstream
     <div class="span4"></div>
     <div class="span4">
         <form form action="/" class="was-validated">
+=======
+        <form form action="/" class="was-validated" id="postVaga">
+>>>>>>> Stashed changes
             <div class="form-group">
                 <label for="nome">Vaga:</label>
                 <input type="text" class="form-control" id="nome" placeholder="Digite o nome da vaga" name="nome" required>
@@ -23,6 +28,7 @@
                 <div class="valid-feedback">Ok</div>
                 <div class="invalid-feedback">Preencha o campo</div>
             </div>
+<<<<<<< Updated upstream
             <div>
                 <h6>Selecione as tecologias exigidas</h6>
                 <div class="form-check" id="checkbox_tecnologias">
@@ -58,6 +64,11 @@
             <a class="btn btn-success" asp-area="" asp-controller="Home" asp-action="Candidatos">Continuar</a>
         </div>
     </div>
+=======
+            <button type="submit" class="btn btn-primary">Enviar</button>
+            <a class="btn btn-success" asp-area="" asp-controller="Home" asp-action="VagasRelTec">Continuar</a>
+        </form>
+>>>>>>> Stashed changes
 </div>
 
 

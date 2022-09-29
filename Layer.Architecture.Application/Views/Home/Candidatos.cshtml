@@ -7,6 +7,7 @@
     </div>
 </div>
 
+<<<<<<< Updated upstream
 <div class="container p-5 my-5">
     <div class="span4"></div>
     <div class="span4">
@@ -72,3 +73,37 @@
 
 
 
+=======
+<!-- Formulario responsavel pelo o cadastro da candidatos  -->
+
+<div class="container p-5 my-5">
+    <form action="/" class="was-validated" id="postcand">
+        <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" class="form-control" id="nome" placeholder="Digite o nome o nome" name="nome" required>
+            <div class="valid-feedback">Ok</div>
+            <div class="invalid-feedback">Preencha o campo</div>
+        </div>
+        <div class="form-group">
+            <label for="Email">E-mail:</label>
+            <input type="text" class="form-control" id="email" placeholder="Digite o e-mail" name="email" required>
+            <div class="valid-feedback">Ok</div>
+            <div class="invalid-feedback">Preencha o campo</div>
+        </div>
+        <div class="form-group">
+            <label for="Telefone">Telefone:</label>
+            <input type="text" class="form-control" id="telefone" placeholder="Digite o Telefone" name="telefone" required>
+            <div class="valid-feedback">Ok</div>
+            <div class="invalid-feedback">Preencha o campo</div>
+        </div>
+        <div class="form-group">
+            <label for="sel1">Selecione o a vaga:</label>
+            <select class="form-control" id="Vaga-dropdown" name="vagaid">
+            </select>
+        </div>
+
+            <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Enviar</button>
+        <a class="btn btn-success" asp-area="" asp-controller="Home" asp-action="Entrevista">Continuar</a>
+    </form>
+</div>
+>>>>>>> Stashed changes

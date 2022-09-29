@@ -7,7 +7,9 @@
     </div>
 </div>
 
+<!-- Formulario reponsavel pela entrevista do candidato  -->
 <div class="container p-5 my-5">
+<<<<<<< Updated upstream
     <div class="col">
         <div class="dropdown">
             <select type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="Candidato-dropdown">
@@ -21,7 +23,23 @@
 <div class="container p-5 my-5">
 <div class="row">
     <div class="col">
+=======
+
+    <form form action="/" class="was-validated" id="postEntrevista">
+        <div class="form-group">
+            <label for="sel1">Selecione o Candidato:</label>
+            <select class="form-control" id="Candidato-dropdown" name="EntrevistadoId">
+            </select>
+         </div>
+        <div class="form-group">
+            <label for="sel1">Selecione a tecnologia:</label>
+            <select class="form-control" id="dropdown_tecnologia" name="tecid">
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Enviar</button>
+>>>>>>> Stashed changes
         <a class="btn btn-success" asp-area="" asp-controller="Home" asp-action="Pesos">Continuar</a>
-    </div>
+    </form>
+    
 </div>
-</div>
+

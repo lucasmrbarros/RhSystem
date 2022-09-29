@@ -26,7 +26,12 @@ namespace Layer.Architecture.Application
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+<<<<<<< Updated upstream
             services.AddDbContext<AppDbContext>(opts => opts.UseLazyLoadingProxies().UseMySQL(Configuration.GetConnectionString("RhConnection")));
+=======
+            //Configurcoes de conexao com o banco e automapper
+            services.AddDbContext<AppDbContext>(opts => opts.UseMySQL(Configuration.GetConnectionString("RhConnection")));
+>>>>>>> Stashed changes
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddControllersWithViews();
 

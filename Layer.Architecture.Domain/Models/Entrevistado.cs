@@ -9,12 +9,16 @@ using System.Threading.Tasks;
 
 namespace Layer.Architecture.Domain.Models
 {
+    //Modelo de candidato
     public class Entrevistado : BaseModel 
     {
         public string Email { get; set; }
         public string Telefone { get; set; }
+<<<<<<< Updated upstream
         
         public int Pontos { get; set; }
+=======
+>>>>>>> Stashed changes
 
         [Required]
         public int VagaId { get; set; }

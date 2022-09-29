@@ -28,9 +28,6 @@ namespace Layer.Architecture.Infra.Data.Migrations
                     b.Property<string>("Nome")
                         .HasColumnType("text");
 
-                    b.Property<int>("Pontos")
-                        .HasColumnType("int");
-
                     b.Property<string>("Telefone")
                         .HasColumnType("text");
 

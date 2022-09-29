@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections;
 using System.Linq;
 
+//Controladora reponsavel pelas as operacoes relacionadas ao cadastro de candidatos.
+
 namespace Layer.Architecture.Application.Controllers
 {
     [ApiController]
